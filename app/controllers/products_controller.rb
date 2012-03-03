@@ -14,8 +14,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    add_breadcrumb "show", show_product_path
     @product = Product.find(params[:id])
+
+    add_breadcrumb "prods home", products_path
+    add_breadcrumb "prod view", product_path(@product.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,8 +28,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
-    add_breadcrumb "new", new_product_path
     @product = Product.new
+
+    add_breadcrumb "prods home", products_path
+    add_breadcrumb "prod new", new_product_path
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,12 +42,17 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+
+    add_breadcrumb "prods home", products_path
+    add_breadcrumb "prod edit", edit_product_path(@product.id)
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(params[:product])
+
+    add_breadcrumb "prods home", products_path
 
     respond_to do |format|
       if @product.save

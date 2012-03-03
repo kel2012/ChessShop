@@ -4,11 +4,15 @@ class CategoriesController < ApplicationController
 
   def manage
     @pages = Category.nested_set.all
+    add_breadcrumb "cats home", categories_path
+    add_breadcrumb "cat manage", manage_categories_path
   end
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+
+    add_breadcrumb "cats home", categories_path
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +23,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    
     @category = Category.find(params[:id])
+
+    add_breadcrumb "cats home", categories_path
+    add_breadcrumb "cat view", category_path(@category.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -32,6 +40,9 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
 
+    add_breadcrumb "cats home", categories_path
+    add_breadcrumb "cat new", new_category_path
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @category }
@@ -41,12 +52,17 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+
+    add_breadcrumb "cats home", categories_path
+    add_breadcrumb "edit", edit_category_path(@category.id)
   end
 
   # POST /categories
   # POST /categories.json
   def create
     @category = Category.new(params[:category])
+
+    add_breadcrumb "cats home", categories_path
 
     respond_to do |format|
       if @category.save

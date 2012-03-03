@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shop</title>
+  <title>ChessShop</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield :css %>
+  <%= yield :js %>
 </head>
 <body>
-  <p><%= render_breadcrumbs %></p>
-
+  <div><%= render_breadcrumbs %></div>
 <%= yield %>
 
 </body>
