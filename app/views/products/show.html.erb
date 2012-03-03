@@ -2,7 +2,7 @@
 
 <p>
   <b>Category:</b>
-  <%= @product.category_id %>
+  <%= Category.find_by_id(@product.category_id).title if @product.category_id %>
 </p>
 
 <p>
@@ -17,11 +17,9 @@
 <p>
 
 <b>Price:</b>
-  <%= @product.price %>
+  $<%= @product.price %>
 </p>
 
 <%= image_tag @product.photo.url %>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

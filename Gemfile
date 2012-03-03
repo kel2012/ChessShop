@@ -14,6 +14,7 @@ gem 'paperclip'
 gem 'restful-authentication'
 gem "breadcrumbs_on_rails"
 gem 'acts_as_tree'
+gem 'dynamic_form'
 
 
 # Gems used only for assets and not required

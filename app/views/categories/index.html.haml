@@ -1,0 +1,4 @@
+- content_for :css do
+  = stylesheet_link_tag 'the_sortable_tree_min', :media => :screen
+
+= sortable_tree @pages, :new_url => new_category_path, :path => 'the_sortable_tree_min'

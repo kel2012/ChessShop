@@ -4,22 +4,10 @@
   <b>Title:</b>
   <%= @category.title %>
 </p>
-
+<% if @category.parent_id  %>
 <p>
   <b>Parent:</b>
-  <%= @category.parent_id %>
+  <%= Category.find_by_id(@category.parent_id).title%>
 </p>
-
-<p>
-  <b>Lft:</b>
-  <%= @category.lft %>
-</p>
-
-<p>
-  <b>Rgt:</b>
-  <%= @category.rgt %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
+<% end %>
 <%= link_to 'Back', categories_path %>

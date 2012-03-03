@@ -9,6 +9,7 @@
   <%= yield :js %>
 </head>
 <body>
+  <div><%= render :partial => 'users/user_bar' %></div>
   <div><%= render_breadcrumbs %></div>
 <%= yield %>
 
