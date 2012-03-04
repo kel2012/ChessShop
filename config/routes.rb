@@ -1,4 +1,7 @@
 Shop::Application.routes.draw do
+
+  root :to => 'products#index'
+
   resources :users
 
   resource :session, :only => [:new, :create, :destroy]
@@ -12,8 +15,6 @@ Shop::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
 
   match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
-
-  #match 'signup' => 'users#new', :as => :signup
 
   resources :products
   resources :categories do

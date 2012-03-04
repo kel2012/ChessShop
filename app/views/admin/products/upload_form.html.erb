@@ -1,0 +1,4 @@
+<%= form_tag({:action => :xls_export}, :multipart => true) do %>
+  <%= file_field_tag 'xls' %>
+  <%= submit_tag %>
+<% end %>
