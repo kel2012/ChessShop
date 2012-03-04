@@ -16,6 +16,8 @@ gem "breadcrumbs_on_rails"
 gem 'acts_as_tree'
 gem 'dynamic_form'
 
+gem 'roo' # xls export
+
 
 # Gems used only for assets and not required
 # in production environments by default.

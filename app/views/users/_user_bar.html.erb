@@ -3,6 +3,13 @@
 <% else%>
   <%= link_to t('common.english'), url_for(:locale => :en) %>
 <% end %>
+<div style="background-color: #ccf;">
+  Go to:
+  <%= link_to 'Admin products section', admin_products_path %>
+  <%= link_to 'Admin categories section', admin_categories_path %>
+  <%= link_to 'User products section', products_path %>
+  <%= link_to 'User categories section', categories_path %>
+</div>
 
 <% if logged_in? -%>
   <div id="user-bar-greeting"><%= t('common.logged_in_as')  %>  <%= link_to_current_user :content_method => :login %></div>

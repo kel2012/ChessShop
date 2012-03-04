@@ -14,6 +14,20 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def export
+    render :upload_form
+  end
+
+  def xls_export
+    uploaded_io = params[:xls]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+      file.write(uploaded_io.read)
+    end
+
+    
+    
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show

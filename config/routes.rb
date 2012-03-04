@@ -24,7 +24,12 @@ Shop::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :products
+    resources :products do
+      collection do
+        get :export
+        post :xls_export
+      end
+    end
     
     resources :categories do
       collection do
