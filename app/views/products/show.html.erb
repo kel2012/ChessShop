@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Category:</b>
+  <b><%= t('common.products.category') %>:</b>
   <%= Category.find_by_id(@product.category_id).title if @product.category_id %>
 </p>
 
 <p>
-  <b>Title:</b>
+  <b><%= t('common.products.title') %>:</b>
   <%= @product.title %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b><%= t('common.products.description') %>:</b>
   <%= @product.description %>
 </p>
 <p>
 
-<b>Price:</b>
+<b><%= t('common.products.price') %>:</b>
   $<%= @product.price %>
 </p>
 
 <%= image_tag @product.photo.url %>
 
-<%= link_to 'Back', products_path %>
+<%= link_to t('common.back'), products_path %>

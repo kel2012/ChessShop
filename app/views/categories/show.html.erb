@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <b><%= t('common.categories.title') %>:</b>
   <%= @category.title %>
 </p>
 <% if @category.parent_id  %>
 <p>
-  <b>Parent:</b>
+  <b><%= t('common.categories.parent') %>:</b>
   <%= Category.find_by_id(@category.parent_id).title%>
 </p>
 <% end %>
-<%= link_to 'Back', categories_path %>
+<%= link_to t('common.back'), categories_path %>

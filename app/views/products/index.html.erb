@@ -1,12 +1,12 @@
-<h1>Listing products</h1>
+<h1><%= t('common.products_listing') %> </h1>
 
 <table>
   <tr>
-    <th>Category</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Photo</th>
+    <th><%= t('common.products.category') %></th>
+    <th><%= t('common.products.title') %></th>
+    <th><%= t('common.products.description') %></th>
+    <th><%= t('common.products.price') %></th>
+    <th><%= t('common.products.photo') %></th>
     <th></th>
   </tr>
 
@@ -17,7 +17,7 @@
     <td><%= product.description %></td>
     <td>$<%= product.price %></td>
     <td><%= image_tag product.photo.url %></td>
-    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to t('common.show'), product %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,27 @@
 en:
   common:
+    russian: Russian
+    english: English
+
+    logged_in_as: Logged in as
+    log_out: Log out
+    not_logged_in: Not logged in
+    log_in: Log in
+    sign_up: Sign Up
+
+    back: Back
+    show: Show
+    
+    products:
+      category: Category
+      title: Title
+      description: Description
+      price: Price
+      photo: Photo
+      products_listing: Listing products
+
+    categories:
+     title: Title
+     parent: Parent
   user:
   admin:

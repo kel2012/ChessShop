@@ -1,10 +1,14 @@
-<%= link_to 'Русский', url_for(:locale => :ru)  %>
-<%= link_to 'English', url_for(:locale => :en)  %>
+<% if I18n.locale == :en %>
+  <%= link_to t('common.russian'), url_for(:locale => :ru) %>
+<% else%>
+  <%= link_to t('common.english'), url_for(:locale => :en) %>
+<% end %>
+
 <% if logged_in? -%>
-  <div id="user-bar-greeting">Logged in as <%= link_to_current_user :content_method => :login %></div>
-  <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
+  <div id="user-bar-greeting"><%= t('common.logged_in_as')  %>  <%= link_to_current_user :content_method => :login %></div>
+  <div id="user-bar-action"  >(<%= link_to t('common.log_out'), logout_path, { :title => "Log out" }    %>)</div>
 <% else -%>
-  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>
-  <div id="user-bar-action"  ><%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
-                               <%= link_to "Sign up", signup_path, { :title => "Create an account" } %></div>
+  <div id="user-bar-greeting"><%= link_to_login_with_IP t('common.not_logged_in'), :style => 'border: none;' %></div>
+  <div id="user-bar-action"  ><%= link_to t('common.log_in'),  login_path,  { :title => "Log in" } %> /
+                               <%= link_to t('common.sign_up'), signup_path, { :title => "Create an account" } %></div>
 <% end -%>
