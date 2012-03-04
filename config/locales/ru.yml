@@ -1,27 +1,27 @@
 ru:
   common:
-    russian: Russian
-    english: English
+    russian: Русский
+    english: Английский
 
-    logged_in_as: Logged in as
-    log_out: Log out
-    not_logged_in: Not logged in
-    log_in: Log in
-    sign_up: Sign Up
+    logged_in_as: Вы вошли как
+    log_out: Выход
+    not_logged_in: Вход не выполнен
+    log_in: Войти
+    sign_up: Зарегистрироваться
 
-    back: Back
-    show: Show
+    back: Вернуться назад
+    show: Показать
 
     products:
-      category: Category
-      title: Title
-      description: Description
-      price: Price
-      photo: Photo
-      products_listing: Listing products
+      category: Категория
+      title: Название
+      description: Описание
+      price: Цена
+      photo: Фото
+      products_listing: Список продуктов
 
     categories:
-     title: Title
-     parent: Parent
+     title: Название
+     parent: Родительская категория
   user:
   admin:
