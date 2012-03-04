@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.input :locale, :as => :hidden, :value => I18n.locale %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -19,10 +19,6 @@
     <%= f.label :parent_id %><br />
     <%= f.collection_select :parent_id, Category.find_all_by_locale(I18n.locale, :order => "title"), :id, :title, :include_blank => true %>
   </div>
-  <div class="field">
-    <%= f.input :locale, :collection => {'Ru' => 'ru', 'En' => 'en'}, :value => @category.locale, :include_blank => false %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
