@@ -3,11 +3,12 @@ class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
 
   def manage
-    @pages = Category.nested_set.all
-   # add_breadcrumb "cats home", categories_path
+    @pages = Category.nested_set.find_all_by_locale(I18n.locale)
+    
     add_breadcrumb "categories", categories_path
     render :index
   end
+  
   # GET /categories
   # GET /categories.json
   def index
@@ -18,7 +19,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     
-    @category = Category.find(params[:id])
+    @category = Category.find_by_id_and_locale(params[:id], I18n.locale)
 
     add_breadcrumb "cats home", categories_path
     add_breadcrumb "cat view", category_path(@category.id)

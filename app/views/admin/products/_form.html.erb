@@ -10,9 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.input :locale, :as => :hidden, :value => I18n.locale %>
   <div class="field">
-    <% cats = Category.all %>
+    <% cats = Category.find_all_by_locale(I18n.locale) %>
     <%= f.input :category_id, :as => :select, :collection => cats %>
   </div>
   <div class="field">

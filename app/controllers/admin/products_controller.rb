@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products.json
   def index
     add_breadcrumb "index", admin_products_path
-    @products = Product.all
+    @products = Product.find_all_by_locale(I18n.locale)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find_by_id_and_locale(params[:id], I18n.locale)
 
     add_breadcrumb "prods home", admin_products_path
     add_breadcrumb "prod view", admin_product_path(@product.id)
@@ -46,7 +46,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @url = admin_product_path
-    @product = Product.find(params[:id])
+    @product = Product.find_by_id_and_locale(params[:id], I18n.locale)
 
     add_breadcrumb "prods home", admin_products_path
     add_breadcrumb "prod edit", edit_admin_product_path(@product.id)
@@ -73,7 +73,7 @@ class Admin::ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
-    @product = Product.find(params[:id])
+    @product = Product.find_by_id_and_locale(params[:id], I18n.locale)
 
     respond_to do |format|
       if @product.update_attributes(params[:product])

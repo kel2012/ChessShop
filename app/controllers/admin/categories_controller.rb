@@ -6,7 +6,7 @@ class Admin::CategoriesController < ApplicationController
   #after_filter :store_location
 
   def manage
-    @pages = Category.nested_set.all
+    @pages = Category.nested_set.find_all_by_locale(I18n.locale)
     add_breadcrumb "cats home", admin_categories_path
     render :index
   end
@@ -20,7 +20,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     
-    @category = Category.find(params[:id])
+    @category = Category.find_by_id_and_locale(params[:id], I18n.locale)
 
     add_breadcrumb "cats home", admin_categories_path
     add_breadcrumb "cat view", admin_category_path(@category.id)
@@ -49,7 +49,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @url = admin_category_path
-    @category = Category.find(params[:id])
+    @category = Category.find_by_id_and_locale(params[:id], I18n.locale)
 
     add_breadcrumb "cats home", admin_categories_path
     add_breadcrumb "edit", edit_admin_category_path(@category.id)
@@ -76,7 +76,7 @@ class Admin::CategoriesController < ApplicationController
   # PUT /categories/1
   # PUT /categories/1.json
   def update
-    @category = Category.find(params[:id])
+    @category = Category.find_by_id_and_locale(params[:id], I18n.locale)
 
     respond_to do |format|
       if @category.update_attributes(params[:category])

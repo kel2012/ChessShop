@@ -2,7 +2,7 @@
 
 <p>
   <b>Category:</b>
-  <%= @product.category_id %>
+  <%= Category.find(@product.category_id).title %>
 </p>
 
 <p>
